@@ -66,6 +66,29 @@ using this template, you can refer to the following repositories:
 - ["Implementation of the de novo genome assembler in the Rust programming language" (engineering thesis)](https://github.com/fuine/eng-thesis-typst/)
 - ["Heuristic hyperparameter optimization for neural networks" (master's thesis)](https://github.com/fuine/msc-thesis-typst/)
 
+## Good practices
+* Save your generated graphics (e.g., graphs) in the vector form (as `.svg`)
+* Consider optimizing your image files, for example by using [`svgo`](https://svgo.dev/), [`jpegoptim`](https://github.com/tjko/jpegoptim) or [`oxipng`](https://github.com/oxipng/oxipng):
+    ```bash
+    svgo my-file.svg
+    jpegoptim my-file.jpg
+    oxipng my-file.png
+    ```
+    Likewise, optimize your thesis file prior to the final hand in, for example by using
+    [`pdfcpu`](https://github.com/pdfcpu/pdfcpu):
+    ```
+    pdfcpu optimize thesis.pdf
+    ```
+
+## Limitations
+Currently one of the biggest limitations of Typst is the [inability to add PDF
+figures](https://github.com/typst/typst/issues/145). To mitigate this problem save
+your graphics in the `.svg` format. If for some reason you need to insert a PDF file then you
+can convert it to SVG using inkscape with the following command:
+```bash
+inkscape --without-gui --file=my-file.pdf --export-plain-svg=my-file.svg
+```
+
 ## Problems and Contributions
 In case of any problems/feature requests, please open an issue or PR in the project's
 repository.
