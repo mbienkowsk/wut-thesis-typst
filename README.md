@@ -1,6 +1,6 @@
 # WUT diploma thesis template
 
-The official template for writing thesis at the Warsaw University of Technology. The
+Official template for writing thesis at the Warsaw University of Technology. The
 template should accomodate all faculties.
 
 ## Usage
@@ -73,11 +73,11 @@ repository.
 ## License
 The template source code and graphics in the `template/images/` directory are distributed under the [MIT0](https://github.com/aws/mit-0/blob/master/MIT-0) license. You are free to use, modify, and distribute it without any warranty.
 
-    [!IMPORTANT]
-
-    This project contains the Warsaw University of Technology logo graphic for creating the title page.
-
-    Please note: The logo is a Warsaw University of Technology copyright. Except for this template, it should not be used for other purposes.
+> [!IMPORTANT]
+>
+> This project contains the Warsaw University of Technology logo graphic for creating the title page.
+>
+> Please note: The logo is a Warsaw University of Technology copyright. Except for this template, it should not be used for other purposes.
 
 ---
 
