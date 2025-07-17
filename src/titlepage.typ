@@ -1,12 +1,23 @@
 #import "@preview/linguify:0.4.2": *
+#let wut-font = "Adagio_Slab"
 
 #let faculty-box(name, wut-text) = {
-  let wut = text(font: "Adagio_Slab", size: 24pt, wut-text)
-  let faculty-text = name.map(x => text(font: "Adagio_Slab", size: 12pt, upper(x)))
+  let wut = text(font: wut-font, fallback: false, size: 24pt, wut-text)
+  let faculty-text = name.map(x => text(
+    font: wut-font,
+    fallback: false,
+    size: 12pt,
+    upper(x),
+  ))
 
   context {
+    let wut-width = measure(wut).width
+    assert(
+      wut-width > 0pt,
+      message: "Please install Adagio_Slab_Regular and Adagio_Slab_Light fonts, as described in the template's readme",
+    )
     let max-faculty-width = calc.max(..faculty-text.map(x => measure(x).width))
-    let size-delta = measure(wut).width - max-faculty-width
+    let size-delta = wut-width - max-faculty-width
     let max-letters = calc.max(..name.map(x => x.len())) - 1
     let best-tracking = size-delta / max-letters
     let faculty-text-tracked = grid(
@@ -14,13 +25,24 @@
       row-gutter: .65em,
       ..faculty-text.map(x => text(tracking: best-tracking, x))
     )
-    let total-height = measure(wut).height + measure(faculty-text-tracked).height
+    let rows
+    let row-gutter
+    // Heuristic which accomodates different faculty text sizes
+    if faculty-text.len() > 1 {
+      rows = (8mm, auto)
+      row-gutter = 13pt
+    } else {
+      row-gutter = 15pt
+      rows = 12.5mm - (row-gutter / 2)
+    }
 
     align(center, grid(
       columns: 2,
       column-gutter: 5mm,
+      rows: 25mm,
       align(horizon, grid(
-        row-gutter: 21.6pt,
+        row-gutter: row-gutter,
+        rows: rows,
         align(center + bottom, wut),
         align(center + top, faculty-text-tracked),
       )),
@@ -48,11 +70,15 @@
 
   let advisor_present = info.advisor != none
   let l(key) = linguify(key, from: linguify-database, lang: lang)
-  let thesis-type = text(font: "Adagio_Slab", weight: "light", size: 43pt, [#l(
-      info.thesis-type,
-    )])
+  let thesis-type = text(
+    font: wut-font,
+    weight: "light",
+    fallback: false,
+    size: 43pt,
+    [#l(info.thesis-type)],
+  )
 
-  set text(size: 12pt, font: "Arial")
+  set text(size: 12pt, font: "TeX Gyre Heros")
   set par(leading: 0.65em, first-line-indent: 0em, justify: false)
   set block(below: 0em, above: 0em)
 
