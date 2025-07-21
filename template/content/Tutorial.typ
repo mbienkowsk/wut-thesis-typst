@@ -3,7 +3,7 @@
   silentheading, todo,
 )
 #import "@preview/wrap-it:0.1.1": wrap-content
-#import "@preview/wut-thesis:0.1.0": faculties
+#import "@preview/wut-thesis:0.1.1": faculties
 
 = Tutorial <Tutorial>
 #todo[Exclude this chapter!]

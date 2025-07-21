@@ -1,5 +1,5 @@
 #import "@preview/drafting:0.2.2": inline-note
-#import "@preview/glossarium:0.5.7": print-glossary
+#import "@preview/glossarium:0.5.8": print-glossary
 #import "@preview/lovelace:0.3.0": *
 
 #let glossary-outline(glossary) = {

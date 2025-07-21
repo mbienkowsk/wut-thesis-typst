@@ -1,8 +1,8 @@
 #{
-  import "@preview/wut-thesis:0.1.0": wut-thesis, acknowledgements, figure-outline, table-outline, appendix
+  import "@preview/wut-thesis:0.1.1": wut-thesis, acknowledgements, figure-outline, table-outline, appendix
   import "utils.typ": flex-caption-styles, todo, glossary-outline
   import "glossary.typ": glossary
-  import "@preview/glossarium:0.5.7": make-glossary, register-glossary
+  import "@preview/glossarium:0.5.8": make-glossary, register-glossary
   import "@preview/drafting:0.2.2": note-outline, set-margin-note-defaults
 
   show: make-glossary
