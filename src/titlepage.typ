@@ -10,8 +10,10 @@
   ))
 }
 
-#let faculty-box(name, wut-text) = {
-  let wut = text(font: wut-font, fallback: false, size: 24pt, wut-text)
+#let faculty-box(name, wut-text, lang) = {
+  // in the english version 24pt results in the linebreak in the university name
+  let wut-font-size = if lang == "pl" { 24pt } else { 23pt }
+  let wut = text(font: wut-font, fallback: false, size: wut-font-size, wut-text)
   let faculty-text = name.map(x => text(
     font: wut-font,
     fallback: false,
@@ -29,20 +31,14 @@
       row-gutter: .65em,
       ..faculty-text.map(x => text(tracking: best-tracking, x))
     )
-    let rows
-    let row-gutter
-    // Heuristic which accomodates different faculty text sizes
-    if faculty-text.len() > 1 {
-      rows = (8mm, auto)
-      row-gutter = 13pt
-    } else {
-      row-gutter = 15pt
-      rows = 12.5mm - (row-gutter / 2)
-    }
+    // Heuristic which accomodates different faculty text sizes - either single line or
+    // double-line
+    let is-multirow = faculty-text.len() > 1
+    let (rows, row-gutter) = if is-multirow { (auto, 13pt) } else { ((1fr, 1fr), 15pt) }
 
     align(center, grid(
       columns: 2,
-      column-gutter: 5mm,
+      column-gutter: 4mm,
       rows: 25mm,
       align(horizon, grid(
         row-gutter: row-gutter,
@@ -84,7 +80,8 @@
       font: wut-font,
       weight: "light",
       fallback: false,
-      size: 43pt,
+      // in the english version 43pt results in the linebreak in the thesis type
+      size: if lang == "pl" { 43pt } else { 39pt },
       [#l(info.thesis-type)],
     )
     let faculty
@@ -96,11 +93,12 @@
       ]
       faculty = missing-font-placeholder[Logo Placeholder]
     } else {
-      faculty = faculty-box(faculties.at(info.faculty), l("wut"))
+      faculty = faculty-box(faculties.at(info.faculty), l("wut"), lang)
     }
     align(center, {
+      v(1em)
       faculty
-      v(3em)
+      v(4em)
       block[#info.institute]
       v(5%)
       thesis-type
