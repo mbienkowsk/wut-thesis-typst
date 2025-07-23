@@ -251,7 +251,8 @@
   show figure: set text(size: 0.9em)
 
   // Set spacings
-  show figure: set block(spacing: 3em)
+  show figure: set block(spacing: 2.5em)
+  show figure: set place(clearance: 2.5em)
 
   show heading.where(level: 1): set block(above: 1.95em, below: 1em)
   show heading.where(level: 2): set block(above: 1.85em, below: 1em)
