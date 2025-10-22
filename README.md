@@ -34,13 +34,13 @@ repository. For further information on adding fonts to your project, please refe
 [Typst documentation](https://typst.app/docs/reference/text/text/#parameters-font).
 
 ### Web app
-1. Download `PW_Adagio_Slab.zip` from [WUT's intranet](https://intranet.pw.edu.pl/promocja/Shared%20Documents/Identyfikacja%20wizualna/Kroje%20pism) (login with USOS credentials).
+1. Download `PW_Adagio_Slab.zip` from [WUT's intranet](https://intranet.pw.edu.pl/promocja/Shared%20Documents/Identyfikacja%20wizualna/Kroje%20pism) (login with pw.edu.pl outlook credentials).
 2. Unzip the archive.
 3. Upload font files `Adagio_Slab-Regular.otf` and `Adagio_Slab-Light.otf` to your
    project (you can put them in a subdirectory such as `fonts`).
 
 ### Locally
-1. Download `PW_Adagio_Slab.zip` from [WUT's intranet](https://intranet.pw.edu.pl/promocja/Shared%20Documents/Identyfikacja%20wizualna/Kroje%20pism) (login with USOS credentials).
+1. Download `PW_Adagio_Slab.zip` from [WUT's intranet](https://intranet.pw.edu.pl/promocja/Shared%20Documents/Identyfikacja%20wizualna/Kroje%20pism) (login with pw.edu.pl outlook credentials).
 2. Install `Adagio_Slab` fonts via your operating system. Note that if a compiler is
    working in a watch mode, you must stop it and rerun it.
 3. In case of `unknown font family: TeX Gyre Heros` warning you also need to install
